@@ -1,4 +1,4 @@
-import type { TMonth } from './types';
+import type { TLanguage, TMonth } from './types';
 
 export const GregorianToHijri = (gregorianYear: number): number => {
   const hijriYear = (gregorianYear - 622) / 0.970224;
@@ -44,4 +44,40 @@ export const convertToArabicNumber = (numStr: string): string => {
     .split('')
     .reverse()
     .join(''); // Reverse the string to get the correct order
+};
+
+export const getDayVal = (day: string, labelLang: TLanguage) => {
+  switch (labelLang) {
+    case 'ar':
+      return convertToArabicNumber(padZero(day));
+    case 'en':
+      return padZero(day);
+    case 'ar+en':
+      return convertToArabicNumber(padZero(day));
+    default:
+      return padZero(day);
+  }
+};
+
+export const getYearVal = (year: string, labelLang: TLanguage) =>
+  labelLang === 'en' ? year : convertToArabicNumber(year);
+
+export const getMonthVal = (
+  month: TMonth,
+  numericMonth: boolean,
+  labelLang: TLanguage
+) => {
+  if (numericMonth) {
+    return padZero(month.monthNumber.toString());
+  }
+  switch (labelLang) {
+    case 'ar':
+      return month.arabicName;
+    case 'en':
+      return padZero(month.monthNumber.toString());
+    case 'ar+en':
+      return `${month.monthNumber.toString()} ${month.arabicName}`;
+    default:
+      return month.monthName;
+  }
 };

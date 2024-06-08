@@ -1,0 +1,45 @@
+import React, { useContext } from 'react';
+import { StyleSheet } from 'react-native';
+import { DateContext } from '../providers';
+import type { TLanguage } from '../types';
+import { Picker } from '@react-native-picker/picker';
+import { getDayVal } from '../utils';
+
+type Props = {
+  labelLang: TLanguage;
+  valueLang: TLanguage;
+};
+
+export const Day = (props: Props) => {
+  const { labelLang = 'en', valueLang = 'en' } = props;
+  const dateCtx = useContext(DateContext);
+  const days = Array.from({ length: 30 }, (_, i) => i + 1);
+
+  return (
+    <Picker
+      selectedValue={dateCtx.date.day}
+      onValueChange={(itemValue, _) => dateCtx.updateDate({ day: itemValue })}
+      style={styles[labelLang]}
+    >
+      {days.map((day) => (
+        <Picker.Item
+          key={day.toString()}
+          label={getDayVal(day.toString(), labelLang)}
+          value={getDayVal(day.toString(), valueLang)}
+        />
+      ))}
+    </Picker>
+  );
+};
+
+const styles = StyleSheet.create({
+  'en': {
+    width: '30%',
+  },
+  'ar': {
+    width: '30%',
+  },
+  'ar+en': {
+    width: '40%',
+  },
+});

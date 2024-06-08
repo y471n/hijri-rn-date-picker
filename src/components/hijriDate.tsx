@@ -1,4 +1,5 @@
 import type { TLanguage } from '../types';
+import { Day } from './day';
 import { Month } from './month';
 import { Year } from './year';
 import React from 'react';
@@ -29,6 +30,7 @@ const HijriDate = (props: Props) => {
         valueLang={valueLang}
         numericMonth={numericMonth}
       />
+      <Day labelLang={labelLang} valueLang={valueLang} />
     </>
   );
 };

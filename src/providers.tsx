@@ -6,7 +6,7 @@ import type {
   UpdateDateParams,
 } from './types';
 import useFirstRender from './hooks/useFirstRender';
-import { hijriMonths, padZero } from './utils';
+import { getDayVal, getYearVal, hijriMonths, padZero } from './utils';
 
 export const DateContext = React.createContext<TDateContext>({
   date: {
@@ -37,6 +37,9 @@ const getInitialMonthLabel = (valLang: TLanguage): string => {
   }
 };
 
+const getInitialDayLabel = (valLang: TLanguage): string =>
+  getDayVal('1', valLang);
+
 const DateProvider = ({
   children,
   initialYear,
@@ -46,7 +49,7 @@ const DateProvider = ({
   const [date, setDate] = useState({
     year: initialYear,
     month: getInitialMonthLabel(valueLang),
-    day: '',
+    day: getInitialDayLabel(valueLang),
   });
 
   const updateDate = (params: Partial<UpdateDateParams>) => {
@@ -65,9 +68,9 @@ const DateProvider = ({
   useEffect(() => {
     if (isFirstRender) {
       updateOutputDate({
-        year: initialYear,
+        year: getYearVal(initialYear, valueLang),
         month: getInitialMonthLabel(valueLang),
-        day: '',
+        day: getInitialDayLabel(valueLang),
       });
     }
   }, [initialYear, updateOutputDate, isFirstRender, valueLang]);

@@ -14,6 +14,7 @@ type Props = {
   labelLang?: TLanguage;
   valueLang?: TLanguage;
   numericMonth?: boolean;
+  viewStyle?: Record<string, unknown>;
 };
 
 const HijriRNDatePicker: React.FC<Props> = (props: Props) => {
@@ -23,6 +24,7 @@ const HijriRNDatePicker: React.FC<Props> = (props: Props) => {
     labelLang = 'en',
     valueLang = 'en',
     numericMonth = false,
+    viewStyle = {},
   } = props;
 
   const handleOutputUpdate = useCallback(
@@ -40,7 +42,7 @@ const HijriRNDatePicker: React.FC<Props> = (props: Props) => {
       updateOutputDate={handleOutputUpdate}
       valueLang={valueLang}
     >
-      <View style={styles.container}>
+      <View style={{ ...styles.container, ...viewStyle }}>
         <HijriDate
           initialParams={{
             startYear: initialParams?.startYear ?? 1,
