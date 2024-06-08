@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { maxHijriYear } from './utils';
 import DateProvider from './providers';
 import HijriDate from './components/hijriDate';
-import type { UpdateDateParams } from './types';
+import type { TLanguage, UpdateDateParams } from './types';
 
 type Props = {
   initialParams?: {
@@ -11,8 +11,8 @@ type Props = {
     endYear?: number;
   };
   updateDate: (params: UpdateDateParams) => void;
-  labelLang?: 'en' | 'ar';
-  valueLang?: 'en' | 'ar';
+  labelLang?: TLanguage;
+  valueLang?: TLanguage;
   numericMonth?: boolean;
 };
 
@@ -37,9 +37,8 @@ const HijriRNDatePicker: React.FC<Props> = (props: Props) => {
       initialYear={
         initialParams?.endYear?.toString() ?? maxHijriYear().toString()
       }
-      initialMonth={'1'}
-      initialDay={'1'}
       updateOutputDate={handleOutputUpdate}
+      valueLang={valueLang}
     >
       <View style={styles.container}>
         <HijriDate

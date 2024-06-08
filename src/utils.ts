@@ -28,3 +28,20 @@ export const hijriMonths: Array<TMonth> = [
 
 export const padZero = (num: string): string =>
   num.length === 1 ? `0${num}` : num;
+
+export const convertToArabicNumber = (numStr: string): string => {
+  const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩']; // Arabic numeral symbols
+
+  return numStr
+    .split('')
+    .map((char) => {
+      const digit = parseInt(char, 10); // Convert the character to a digit
+      return !isNaN(digit) && digit >= 0 && digit <= 9
+        ? arabicNumerals[digit]
+        : char; // Convert or keep the character
+    })
+    .join('') // Join the array back into a string
+    .split('')
+    .reverse()
+    .join(''); // Reverse the string to get the correct order
+};

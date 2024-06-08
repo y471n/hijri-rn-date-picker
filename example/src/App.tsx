@@ -22,7 +22,12 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <HijriRNDatePicker updateDate={updateDate} numericMonth={true} />
+      <HijriRNDatePicker
+        updateDate={updateDate}
+        numericMonth={false}
+        labelLang="ar+en"
+        valueLang="ar"
+      />
       <Text style={styles.label}>{JSON.stringify(date)}</Text>
     </View>
   );
@@ -31,6 +36,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    direction: 'rtl',
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',

@@ -19,4 +19,4 @@ export type TDateContext = {
   updateDate: (params: Partial<UpdateDateParams>) => void;
 };
 
-export type TLanguage = 'en' | 'ar';
+export type TLanguage = 'en' | 'ar' | 'ar+en';

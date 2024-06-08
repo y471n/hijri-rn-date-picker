@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { DateContext } from '../providers';
 import { Picker } from '@react-native-picker/picker';
-import { hijriMonths } from '../utils';
+import { hijriMonths, padZero } from '../utils';
 import { StyleSheet } from 'react-native';
 import type { TLanguage, TMonth } from '../types';
 
@@ -17,9 +17,18 @@ const getMonthVal = (
   labelLang: TLanguage
 ) => {
   if (numericMonth) {
-    return month.monthNumber.toString();
+    return padZero(month.monthNumber.toString());
   }
-  return labelLang === 'ar' ? month.arabicName : month.monthName;
+  switch (labelLang) {
+    case 'ar':
+      return month.arabicName;
+    case 'en':
+      return padZero(month.monthNumber.toString());
+    case 'ar+en':
+      return `${month.monthNumber.toString()} ${month.arabicName}`;
+    default:
+      return month.monthName;
+  }
 };
 
 export const Month = (props: Props) => {

@@ -1,3 +1,4 @@
+import type { TLanguage } from '../types';
 import { Month } from './month';
 import { Year } from './year';
 import React from 'react';
@@ -7,8 +8,8 @@ type Props = {
     startYear: number;
     endYear: number;
   };
-  labelLang: 'en' | 'ar';
-  valueLang: 'en' | 'ar';
+  labelLang: TLanguage;
+  valueLang: TLanguage;
   numericMonth: boolean;
 };
 
@@ -20,6 +21,8 @@ const HijriDate = (props: Props) => {
       <Year
         startYear={initialParams.startYear}
         endYear={initialParams.endYear}
+        labelLang={labelLang}
+        valueLang={valueLang}
       />
       <Month
         labelLang={labelLang}

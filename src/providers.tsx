@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import type { TDateContext, UpdateDateParams } from './types';
+import type {
+  TDateContext,
+  TLanguage,
+  TMonth,
+  UpdateDateParams,
+} from './types';
 import useFirstRender from './hooks/useFirstRender';
+import { hijriMonths, padZero } from './utils';
 
 export const DateContext = React.createContext<TDateContext>({
   date: {
@@ -13,19 +19,33 @@ export const DateContext = React.createContext<TDateContext>({
 
 type Props = {
   initialYear: string;
-  initialMonth: string;
-  initialDay: string;
+  valueLang: TLanguage;
   updateOutputDate: (params: UpdateDateParams) => void;
+};
+
+const getInitialMonthLabel = (valLang: TLanguage): string => {
+  const month = hijriMonths.find((m) => m.monthNumber === 1) as TMonth;
+  switch (valLang) {
+    case 'ar':
+      return month.arabicName;
+    case 'en':
+      return padZero(month.monthNumber.toString());
+    case 'ar+en':
+      return `${month.monthNumber} ${month.arabicName}`;
+    default:
+      return padZero(month.monthNumber.toString());
+  }
 };
 
 const DateProvider = ({
   children,
   initialYear,
   updateOutputDate,
+  valueLang,
 }: React.PropsWithChildren<Props>) => {
   const [date, setDate] = useState({
     year: initialYear,
-    month: '',
+    month: getInitialMonthLabel(valueLang),
     day: '',
   });
 
@@ -46,11 +66,11 @@ const DateProvider = ({
     if (isFirstRender) {
       updateOutputDate({
         year: initialYear,
-        month: '',
+        month: getInitialMonthLabel(valueLang),
         day: '',
       });
     }
-  }, [initialYear, updateOutputDate, isFirstRender]);
+  }, [initialYear, updateOutputDate, isFirstRender, valueLang]);
 
   return (
     <DateContext.Provider value={{ date, updateDate }}>
