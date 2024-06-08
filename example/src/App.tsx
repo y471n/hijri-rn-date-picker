@@ -1,18 +1,29 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-hijri-rn-date-picker';
+import { StyleSheet, Text, View } from 'react-native';
+import {
+  HijriRNDatePicker,
+  type UpdateDateParams,
+} from 'react-native-hijri-rn-date-picker';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [date, setDate] = React.useState<UpdateDateParams>({
+    year: '',
+    month: '',
+    day: '',
+  });
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const updateDate = (params: UpdateDateParams) => {
+    setDate((prevDate) => ({
+      ...prevDate,
+      ...params,
+    }));
+  };
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <HijriRNDatePicker updateDate={updateDate} numericMonth={true} />
+      <Text style={styles.label}>{JSON.stringify(date)}</Text>
     </View>
   );
 }
@@ -22,10 +33,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
+    backgroundColor: '#f0f0f0',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+  label: {
+    fontSize: 20,
+    marginTop: 20,
   },
 });

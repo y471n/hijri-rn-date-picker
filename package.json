@@ -155,5 +155,8 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "@react-native-picker/picker": "^2.7.6"
   }
 }
