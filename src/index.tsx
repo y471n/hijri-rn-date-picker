@@ -6,6 +6,7 @@ import HijriDate from './components/hijriDate';
 import type {
   TLanguage,
   TModalPosition,
+  TModalStyle,
   TMode,
   UpdateDateParams,
 } from './types';
@@ -26,6 +27,7 @@ type Props = {
   onConfirm?: () => void;
   onCancel?: () => void;
   modalPosition?: TModalPosition;
+  modalStyles?: Partial<TModalStyle>;
 };
 
 const HijriRNDatePicker: React.FC<Props> = (props: Props) => {
@@ -41,6 +43,7 @@ const HijriRNDatePicker: React.FC<Props> = (props: Props) => {
     onConfirm,
     onCancel,
     modalPosition = 'bottom',
+    modalStyles,
   } = props;
 
   const handleOutputUpdate = useCallback(
@@ -68,6 +71,14 @@ const HijriRNDatePicker: React.FC<Props> = (props: Props) => {
           onConfirm={onConfirm}
           position={modalPosition}
           labelLang={labelLang}
+          modalStyles={{
+            modalBackground: modalStyles?.modalBackground ?? {},
+            modalContainer: modalStyles?.modalContainer ?? {},
+            confirmButton: modalStyles?.confirmButton ?? {},
+            closeButton: modalStyles?.closeButton ?? {},
+            confirmText: modalStyles?.confirmText ?? {},
+            closeText: modalStyles?.closeText ?? {},
+          }}
         >
           <View style={{ ...styles.container, ...viewStyle }}>
             <HijriDate

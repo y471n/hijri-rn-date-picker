@@ -28,11 +28,15 @@ export default function App() {
           numericMonth={false}
           labelLang="en"
           valueLang="en"
-          viewStyle={{ width: 400 }}
           mode="modal"
           modalPosition="bottom"
           onCancel={() => setDatePickerVisibility(false)}
           onConfirm={() => setDatePickerVisibility(false)}
+          modalStyles={{
+            modalBackground: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+            modalContainer: { backgroundColor: 'white' },
+            confirmButton: { backgroundColor: '#007aff' },
+          }}
         />
       )}
       <Button

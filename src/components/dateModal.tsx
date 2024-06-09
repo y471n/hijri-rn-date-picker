@@ -7,13 +7,14 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
 } from 'react-native';
-import type { TLanguage, TModalPosition } from '../types';
+import type { TLanguage, TModalPosition, TModalStyle } from '../types';
 
 type Props = {
   position: TModalPosition;
   onClose?: () => void;
   onConfirm?: () => void;
   labelLang: TLanguage;
+  modalStyles: TModalStyle;
 };
 
 export const DateModal = ({
@@ -21,6 +22,7 @@ export const DateModal = ({
   onClose,
   onConfirm,
   labelLang,
+  modalStyles,
   children,
 }: React.PropsWithChildren<Props>) => {
   const getPositionStyle = () => {
@@ -55,20 +57,35 @@ export const DateModal = ({
       visible={true}
     >
       <TouchableWithoutFeedback onPress={onClose}>
-        <View style={[styles.modalBackground, getBgPositionStyle()]}>
+        <View
+          style={[
+            styles.modalBackground,
+            getBgPositionStyle(),
+            styles.modalBackground,
+          ]}
+        >
           <TouchableWithoutFeedback>
-            <View style={[styles.modalContainer, getPositionStyle()]}>
+            <View
+              style={[
+                styles.modalContainer,
+                getPositionStyle(),
+                modalStyles.modalContainer,
+              ]}
+            >
               {children}
-              <TouchableOpacity onPress={onClose} style={styles.closeButton}>
-                <Text style={styles.closeText}>
+              <TouchableOpacity
+                onPress={onClose}
+                style={[styles.closeButton, modalStyles.closeButton]}
+              >
+                <Text style={[styles.closeText, modalStyles.closeText]}>
                   {labelLang !== 'en' ? 'يغلق' : 'Close'}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={onConfirm}
-                style={styles.confirmButton}
+                style={[styles.confirmButton, modalStyles.confirmButton]}
               >
-                <Text style={styles.confirmText}>
+                <Text style={[styles.confirmText, modalStyles.confirmText]}>
                   {labelLang !== 'en' ? 'يتأكد' : 'Confirm'}
                 </Text>
               </TouchableOpacity>
