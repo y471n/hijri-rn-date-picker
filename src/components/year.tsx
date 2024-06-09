@@ -29,6 +29,8 @@ export const Year = (props: Props) => {
 
   return (
     <Picker
+      mode="dialog"
+      prompt={labelLang === 'ar' ? 'اختر السنة' : 'Year'}
       selectedValue={getYearVal(dateCtx.date.year, valueLang)}
       onValueChange={(itemValue, _) =>
         dateCtx.updateDate({ year: getYearVal(itemValue, valueLang) })

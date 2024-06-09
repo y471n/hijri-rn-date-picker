@@ -20,6 +20,8 @@ export const Day = (props: Props) => {
       selectedValue={dateCtx.date.day}
       onValueChange={(itemValue, _) => dateCtx.updateDate({ day: itemValue })}
       style={styles[labelLang]}
+      mode="dialog"
+      prompt={labelLang === 'ar' ? 'اختر اليوم' : 'Select Day'}
     >
       {days.map((day) => (
         <Picker.Item
@@ -34,12 +36,12 @@ export const Day = (props: Props) => {
 
 const styles = StyleSheet.create({
   'en': {
-    width: '30%',
+    minWidth: '30%',
   },
   'ar': {
-    width: '30%',
+    minWidth: '30%',
   },
   'ar+en': {
-    width: '40%',
+    minWidth: '40%',
   },
 });

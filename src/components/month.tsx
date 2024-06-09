@@ -24,6 +24,8 @@ export const Month = (props: Props) => {
       selectedValue={dateCtx.date.month}
       onValueChange={(itemValue, _) => handleMonthChange(itemValue)}
       style={styles[labelLang]}
+      mode="dialog"
+      prompt={labelLang === 'ar' ? 'اختر الشهر' : 'Select Month'}
     >
       {hijriMonths.map((month) => (
         <Picker.Item
@@ -38,12 +40,12 @@ export const Month = (props: Props) => {
 
 const styles = StyleSheet.create({
   'en': {
-    minWidth: '30%',
+    width: '30%',
   },
   'ar': {
-    minWidth: '40%',
+    width: '40%',
   },
   'ar+en': {
-    minWidth: '40%',
+    width: '40%',
   },
 });
