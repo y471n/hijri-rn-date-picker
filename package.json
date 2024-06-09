@@ -1,6 +1,6 @@
 {
-  "name": "react-native-hijri-rn-date-picker",
-  "version": "0.1.0",
+  "name": "react-native-hijri-date-picker",
+  "version": "0.1.1",
   "description": "Hijri Calendar Date Picker for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -26,7 +26,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace react-native-hijri-rn-date-picker-example",
+    "example": "yarn workspace react-native-hijri-date-picker-example",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
@@ -41,14 +41,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/y471n/react-native-hijri-rn-date-picker.git"
+    "url": "git+https://github.com/y471n/hijri-rn-date-picker.git"
   },
   "author": "y471n <iamyatin@gmail.com> (https://github.com/y471n)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/y471n/react-native-hijri-rn-date-picker/issues"
+    "url": "https://github.com/y471n/hijri-rn-date-picker/issues"
   },
-  "homepage": "https://github.com/y471n/react-native-hijri-rn-date-picker#readme",
+  "homepage": "https://github.com/y471n/hijri-rn-date-picker#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
