@@ -36,12 +36,13 @@ export const Day = (props: Props) => {
 
 const styles = StyleSheet.create({
   'en': {
-    minWidth: '30%',
+    width: '30%',
+    backgroundColor: 'white',
   },
   'ar': {
-    minWidth: '30%',
+    width: '30%',
   },
   'ar+en': {
-    minWidth: '40%',
+    width: '40%',
   },
 });

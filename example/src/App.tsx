@@ -1,17 +1,17 @@
 import * as React from 'react';
 
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import {
   HijriRNDatePicker,
   type UpdateDateParams,
-} from 'react-native-hijri-rn-date-picker';
-
+} from 'react-native-hijri-date-picker';
 export default function App() {
   const [date, setDate] = React.useState<UpdateDateParams>({
     year: '',
     month: '',
     day: '',
   });
+  const [isDatePickerVisible, setDatePickerVisibility] = React.useState(false);
 
   const updateDate = (params: UpdateDateParams) => {
     setDate((prevDate) => ({
@@ -22,12 +22,26 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <HijriRNDatePicker
-        updateDate={updateDate}
-        numericMonth={false}
-        labelLang="en"
-        valueLang="ar"
-        viewStyle={{ width: 400 }}
+      {isDatePickerVisible && (
+        <HijriRNDatePicker
+          updateDate={updateDate}
+          numericMonth={false}
+          labelLang="en"
+          valueLang="en"
+          mode="modal"
+          modalPosition="bottom"
+          onCancel={() => setDatePickerVisibility(false)}
+          onConfirm={() => setDatePickerVisibility(false)}
+          modalStyles={{
+            modalBackground: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+            modalContainer: { backgroundColor: 'white' },
+            confirmButton: { backgroundColor: '#007aff' },
+          }}
+        />
+      )}
+      <Button
+        title="Show Picker"
+        onPress={() => setDatePickerVisibility(true)}
       />
       <Text style={styles.label}>{JSON.stringify(date)}</Text>
     </View>
