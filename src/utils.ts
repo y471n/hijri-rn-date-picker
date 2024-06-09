@@ -66,7 +66,7 @@ export const getMonthVal = (
   month: TMonth,
   numericMonth: boolean,
   labelLang: TLanguage
-) => {
+): string => {
   if (numericMonth) {
     return padZero(month.monthNumber.toString());
   }

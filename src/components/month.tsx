@@ -38,12 +38,12 @@ export const Month = (props: Props) => {
 
 const styles = StyleSheet.create({
   'en': {
-    width: '30%',
+    minWidth: '30%',
   },
   'ar': {
-    width: '40%',
+    minWidth: '40%',
   },
   'ar+en': {
-    width: '40%',
+    minWidth: '40%',
   },
 });
