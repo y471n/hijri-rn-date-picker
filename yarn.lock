@@ -3326,16 +3326,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-picker/picker@npm:^2.7.6":
-  version: 2.7.6
-  resolution: "@react-native-picker/picker@npm:2.7.6"
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-  checksum: 8a4ca200a771467107fb82cfc64d7c8dfc6e8bd68768833addce3d1cc1d194126fea7df2f8464ca646a73006f1d5e7b9c138196f1b33e42c2e7231174db523a2
-  languageName: node
-  linkType: hard
-
 "@react-native/assets-registry@npm:0.74.84":
   version: 0.74.84
   resolution: "@react-native/assets-registry@npm:0.74.84"
@@ -14665,7 +14655,6 @@ __metadata:
   dependencies:
     "@commitlint/config-conventional": ^17.0.2
     "@evilmartians/lefthook": ^1.5.0
-    "@react-native-picker/picker": ^2.7.6
     "@react-native/eslint-config": ^0.73.1
     "@release-it/conventional-changelog": ^5.0.0
     "@types/jest": ^29.5.5
