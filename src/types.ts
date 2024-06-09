@@ -20,3 +20,7 @@ export type TDateContext = {
 };
 
 export type TLanguage = 'en' | 'ar' | 'ar+en';
+
+export type TMode = 'inline' | 'modal';
+
+export type TModalPosition = 'top' | 'bottom' | 'center';
