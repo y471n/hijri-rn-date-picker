@@ -27,7 +27,7 @@ export default function App() {
         numericMonth={false}
         labelLang="en"
         valueLang="ar"
-        viewStyle={{ width: 300 }}
+        viewStyle={{ width: 400 }}
       />
       <Text style={styles.label}>{JSON.stringify(date)}</Text>
     </View>
