@@ -1,6 +1,5 @@
-# react-native-hijri-rn-date-picker
+# Hijri Calendar Date Picker for React Native
 
-Hijri Calendar Date Picker for React Native
 
 ## Installation
 
