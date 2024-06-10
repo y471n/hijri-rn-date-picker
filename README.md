@@ -4,7 +4,7 @@
 ## Installation
 
 ```sh
-npm install react-native-hijri-rn-date-picker
+npm install react-native-hijri-date-picker
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import {
   HijriRNDatePicker,
   type UpdateDateParams,
-} from 'react-native-hijri-rn-date-picker';
+} from 'react-native-hijri-date-picker';
 
 export default function App() {
   const [date, setDate] = React.useState<UpdateDateParams>({
