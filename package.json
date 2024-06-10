@@ -78,7 +78,7 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
-    "@react-native-picker/picker": "^2.7.6"
+    "@react-native-picker/picker": "*"
   },
   "workspaces": [
     "example"
