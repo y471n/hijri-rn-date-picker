@@ -25,7 +25,7 @@ type Props = {
   mode: TMode;
   isOpen?: boolean;
   onConfirm?: () => void;
-  onCancel?: () => void;
+  onClose?: () => void;
   modalPosition?: TModalPosition;
   modalStyles?: Partial<TModalStyle>;
 };
@@ -41,7 +41,7 @@ const HijriRNDatePicker: React.FC<Props> = (props: Props) => {
     mode = 'inline',
     isOpen = true,
     onConfirm,
-    onCancel,
+    onClose,
     modalPosition = 'bottom',
     modalStyles,
   } = props;
@@ -67,7 +67,7 @@ const HijriRNDatePicker: React.FC<Props> = (props: Props) => {
     >
       {mode === 'modal' && (
         <DateModal
-          onClose={onCancel}
+          onClose={onClose}
           onConfirm={onConfirm}
           position={modalPosition}
           labelLang={labelLang}

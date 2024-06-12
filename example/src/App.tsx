@@ -30,8 +30,8 @@ export default function App() {
           valueLang="en"
           mode="modal"
           modalPosition="bottom"
-          onCancel={() => setDatePickerVisibility(false)}
-          onConfirm={() => setDatePickerVisibility(false)}
+          onClose={() => setDatePickerVisibility(false)} // Optional
+          // onConfirm={() => setDatePickerVisibility(false)} // Optional
           modalStyles={{
             modalBackground: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
             modalContainer: { backgroundColor: 'white' },

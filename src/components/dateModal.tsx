@@ -73,22 +73,26 @@ export const DateModal = ({
               ]}
             >
               {children}
-              <TouchableOpacity
-                onPress={onClose}
-                style={[styles.closeButton, modalStyles.closeButton]}
-              >
-                <Text style={[styles.closeText, modalStyles.closeText]}>
-                  {labelLang !== 'en' ? 'يغلق' : 'Close'}
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={onConfirm}
-                style={[styles.confirmButton, modalStyles.confirmButton]}
-              >
-                <Text style={[styles.confirmText, modalStyles.confirmText]}>
-                  {labelLang !== 'en' ? 'يتأكد' : 'Confirm'}
-                </Text>
-              </TouchableOpacity>
+              {onClose && (
+                <TouchableOpacity
+                  onPress={onClose}
+                  style={[styles.closeButton, modalStyles.closeButton]}
+                >
+                  <Text style={[styles.closeText, modalStyles.closeText]}>
+                    {labelLang !== 'en' ? 'يغلق' : 'Close'}
+                  </Text>
+                </TouchableOpacity>
+              )}
+              {onConfirm && (
+                <TouchableOpacity
+                  onPress={onConfirm}
+                  style={[styles.confirmButton, modalStyles.confirmButton]}
+                >
+                  <Text style={[styles.confirmText, modalStyles.confirmText]}>
+                    {labelLang !== 'en' ? 'يتأكد' : 'Confirm'}
+                  </Text>
+                </TouchableOpacity>
+              )}
             </View>
           </TouchableWithoutFeedback>
         </View>
