@@ -122,4 +122,4 @@ const styles = StyleSheet.create({
 });
 
 export { HijriRNDatePicker };
-export type { TDate as UpdateDateParams };
+export type { TDate };
