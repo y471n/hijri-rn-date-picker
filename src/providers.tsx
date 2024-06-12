@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import type {
-  TDateContext,
-  TLanguage,
-  TMonth,
-  UpdateDateParams,
-} from './types';
+import type { TDateContext, TLanguage, TMonth, TDate } from './types';
 import useFirstRender from './hooks/useFirstRender';
 import { getDayVal, getYearVal, hijriMonths, padZero } from './utils';
 
@@ -14,13 +9,13 @@ export const DateContext = React.createContext<TDateContext>({
     month: '',
     day: '',
   },
-  updateDate: (_params: Partial<UpdateDateParams>) => {},
+  updateDate: (_params: Partial<TDate>) => {},
 });
 
 type Props = {
   initialYear: string;
   valueLang: TLanguage;
-  updateOutputDate: (params: UpdateDateParams) => void;
+  updateOutputDate: (params: TDate) => void;
 };
 
 const getInitialMonthLabel = (valLang: TLanguage): string => {
@@ -52,7 +47,7 @@ const DateProvider = ({
     day: getInitialDayLabel(valueLang),
   });
 
-  const updateDate = (params: Partial<UpdateDateParams>) => {
+  const updateDate = (params: Partial<TDate>) => {
     setDate((prevDate) => ({
       ...prevDate,
       ...params,

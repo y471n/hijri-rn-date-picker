@@ -8,7 +8,7 @@ import type {
   TModalPosition,
   TModalStyle,
   TMode,
-  UpdateDateParams,
+  TDate,
 } from './types';
 import { DateModal } from './components/dateModal';
 
@@ -17,7 +17,7 @@ type Props = {
     startYear?: number;
     endYear?: number;
   };
-  updateDate: (params: UpdateDateParams) => void;
+  updateDate: (params: TDate) => void;
   labelLang?: TLanguage;
   valueLang?: TLanguage;
   numericMonth?: boolean;
@@ -47,7 +47,7 @@ const HijriRNDatePicker: React.FC<Props> = (props: Props) => {
   } = props;
 
   const handleOutputUpdate = useCallback(
-    (params: UpdateDateParams) => {
+    (params: TDate) => {
       updateDate(params);
     },
     [updateDate]
@@ -122,4 +122,4 @@ const styles = StyleSheet.create({
 });
 
 export { HijriRNDatePicker };
-export type { UpdateDateParams };
+export type { TDate as UpdateDateParams };

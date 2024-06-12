@@ -4,7 +4,7 @@ export type TMonth = {
   arabicName: string;
 };
 
-export type UpdateDateParams = {
+export type TDate = {
   year: string;
   month: string;
   day: string;
@@ -16,7 +16,7 @@ export type TDateContext = {
     month: string;
     day: string;
   };
-  updateDate: (params: Partial<UpdateDateParams>) => void;
+  updateDate: (params: Partial<TDate>) => void;
 };
 
 export type TLanguage = 'en' | 'ar' | 'ar+en';

@@ -56,7 +56,7 @@ export const DateModal = ({
       onRequestClose={onClose}
       visible={true}
     >
-      <TouchableWithoutFeedback onPress={onClose}>
+      <TouchableWithoutFeedback onPress={onClose ?? onConfirm}>
         <View
           style={[
             styles.modalBackground,
