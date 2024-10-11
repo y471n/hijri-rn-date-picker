@@ -1,19 +1,16 @@
 import * as React from 'react';
 
 import { Button, StyleSheet, Text, View } from 'react-native';
-import {
-  HijriRNDatePicker,
-  type UpdateDateParams,
-} from 'react-native-hijri-date-picker';
+import { HijriRNDatePicker, type TDate } from 'react-native-hijri-date-picker';
 export default function App() {
-  const [date, setDate] = React.useState<UpdateDateParams>({
+  const [date, setDate] = React.useState<TDate>({
     year: '',
     month: '',
     day: '',
   });
   const [isDatePickerVisible, setDatePickerVisibility] = React.useState(false);
 
-  const updateDate = (params: UpdateDateParams) => {
+  const updateDate = (params: TDate) => {
     setDate((prevDate) => ({
       ...prevDate,
       ...params,
