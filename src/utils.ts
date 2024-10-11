@@ -42,7 +42,6 @@ export const convertToArabicNumber = (numStr: string): string => {
     })
     .join('') // Join the array back into a string
     .split('')
-    .reverse()
     .join(''); // Reverse the string to get the correct order
 };
 
