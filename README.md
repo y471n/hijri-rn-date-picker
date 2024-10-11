@@ -1,6 +1,5 @@
 # Hijri Calendar Date Picker for React Native
 
-
 ## Installation
 
 ```sh
@@ -15,17 +14,17 @@ import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {
   HijriRNDatePicker,
-  type UpdateDateParams,
+  type TDate,
 } from 'react-native-hijri-date-picker';
 
 export default function App() {
-  const [date, setDate] = React.useState<UpdateDateParams>({
+  const [date, setDate] = React.useState<TDate>({
     year: '',
     month: '',
     day: '',
   });
 
-  const updateDate = (params: UpdateDateParams) => {
+  const updateDate = (params: TDate) => {
     setDate((prevDate) => ({
       ...prevDate,
       ...params,
@@ -62,6 +61,13 @@ const styles = StyleSheet.create({
 });
 
 ```
+
+## Screen Recording
+
+### iOS + Android
+
+![Hijri Date Picker in Action](media/screen-recording.gif)
+![Hijri Date Picker in Action in Android](media/screen-recording-android.gif)
 
 ## Contributing
 
